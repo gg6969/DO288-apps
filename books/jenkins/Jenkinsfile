@@ -65,8 +65,7 @@ pipeline {
                 echo '### Creating a new app in DEV env ###'
                 //TODO: Create a new app and expose the service
 		oc project ${DEV_PROJECT}
-		oc new-app --as-deployment-config --name ${APP_NAME} -i nodejs:12 https://github.com/gg6969/DO288-apps/ --context-dir books --build-env npm_config_registry=${NEXUS_SERVER}
-		//oc new-app --as-deployment-config --name ${APP_NAME} -i nodejs:12 https://github.com/gg6969/DO288-apps#custom-pipeline --context-dir books --build-env npm_config_registry=${NEXUS_SERVER}
+	oc new-app --as-deployment-config --name ${APP_NAME} -i nodejs:12 https://github.com/gg6969/DO288-apps#custom-pipeline --build-env npm_config_registry=${NEXUS_SERVER} --context-dir books
 		oc expose svc/${APP_NAME}
             }
         }
@@ -129,7 +128,7 @@ pipeline {
                 echo '### Creating a new app in Staging ###'
                 //TODO: Create a new app in stage using the books:stage image stream and expose the service
 		oc project ${STAGE_PROJECT}
-                oc new-app --as-deployment-config --name ${APP_NAME} -i nodejs:12 https://github.com/gg6969/DO288-apps#custom-pipeline --context-dir custom-pipeline --build-env npm_config_registry=${NEXUS_SERVER}
+		oc new-app --as-deployment-config --name books -i books:stage
                 oc expose svc/${APP_NAME}
 
             }
