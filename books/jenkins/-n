@@ -1,0 +1,1 @@
+clusterrole.rbac.authorization.k8s.io/edit added: ["system:serviceaccount:gianro-it-ibm-com-ci-cd:jenkins" "gianro-it-ibm-com-book-dev"]
