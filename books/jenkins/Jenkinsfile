@@ -22,7 +22,7 @@ pipeline {
         NEXUS_SERVER = "nexus-common.apps.na45.prod.nextcle.com"
 
         // DO NOT CHANGE THE GLOBAL VARS BELOW THIS LINE
-        APP_NAME = "books"
+        APP_NAME = "book"
     }
 
 
